@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Upload Recipe</title>
 </head>
 <body>
   <h2>Recipe Upload</h2>
   <input id="fileupload" type="file" name="fileupload">
   <button id="upload-button" onclick="uploadFile()"> Upload </button>
-  <script>
-    async function uploadRecipe(){
+  <script> //TODO change this so we upload recipes not files (check around 35:00)
+    async function uploadFile(){
       let formData = new FormData();
       formData.append("data", fileupload.files[0]);
       await fetch("http://localhost:8080/recipes",{
