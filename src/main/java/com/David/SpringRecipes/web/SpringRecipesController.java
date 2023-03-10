@@ -1,6 +1,7 @@
 package com.David.SpringRecipes.web;
 
 import com.David.SpringRecipes.model.Recipe;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -44,7 +45,7 @@ public class SpringRecipesController {
         }
     }
     @PostMapping("/recipes/")
-    public Recipe create(@RequestBody Recipe recipe){
+    public Recipe create(@RequestBody @Valid Recipe recipe){
         db.put(recipe.getName(), recipe);
         return recipe;
     }
