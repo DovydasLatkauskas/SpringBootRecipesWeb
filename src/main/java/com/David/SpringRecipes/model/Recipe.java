@@ -11,7 +11,6 @@ public class Recipe {
     private String name; // name will be unique and used as id instead of an integer id in order to make linking to recipes nicer
     @NotEmpty
     private String author;
-    @NotEmpty
     private List<String> tags;
     @NotEmpty
     @PositiveOrZero
@@ -19,11 +18,16 @@ public class Recipe {
     @NotEmpty
     @PositiveOrZero
     private Integer cookTimeMinutes;
-    @NotEmpty
     private List<String> ingredients;
-    @NotEmpty
     private List<String> directions;
-    // public Recipe(){    }
+    // for testing purposes
+    public Recipe(){}
+    public Recipe(String name, String author, Integer prepTimeMinutes, Integer cookTimeMinutes) {
+        this.name = name; //TODO check if no recipe is called {name} already
+        this.author = author;
+        this.prepTimeMinutes = prepTimeMinutes;
+        this.cookTimeMinutes = cookTimeMinutes;
+    }
     public Recipe(String name, String author, List<String> tags, Integer prepTimeMinutes, Integer cookTimeMinutes,
                   List<String> ingredients, List<String> directions) {
         this.name = name; //TODO check if no recipe is called {name} already

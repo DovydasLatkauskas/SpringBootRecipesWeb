@@ -44,8 +44,8 @@ public class SpringRecipesController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
     }
-    @PostMapping("/recipes/")
-    public Recipe create(@RequestBody @Valid Recipe recipe){
+    @PostMapping(value = "/recipes/submit")
+    public Recipe create(@RequestBody Recipe recipe){
         db.put(recipe.getName(), recipe);
         return recipe;
     }

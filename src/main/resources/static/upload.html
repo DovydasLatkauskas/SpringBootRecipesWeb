@@ -10,7 +10,7 @@
     <header>
         <h2>Recipe Upload</h2>
     </header>
-    <form method="post" id="recipe-form">
+    <form id="recipe-form">
       <label for="name" id="name-label">Name of your recipe
         <input name="name" type="text" id="name" required placeholder="recipe name">
       </label>
@@ -23,24 +23,45 @@
       <label for="cook-time" id="cook-time-label">Cooking time in minutes
         <input name="cookTimeMinutes" type="number" id="cook-time" min="0" required placeholder="cook time">
       </label>
+      <!--
       <label for="ingredient-box">What ingredients does one need for this recipe?
         <textarea name="ingredients" placeholder="type each ingredient on a separate row using the enter button" rows="4" cols="40" id="ingredient-box"></textarea>
       </label>
       <label for="direction-box">How does one prepare this dish?
-        <textarea name="directions" placeholder="write each direction on a separate row using the enter button" rows="4" cols="40" id="directions-box"></textarea>
+        <textarea name="directions" placeholder="write each direction on a separate row using the enter button" rows="4" cols="40" id="direction-box"></textarea>
       </label>
-      <button id="upload-button" onclick="uploadRecipe()"> Submit </button>
+      <label for="tag-box">Add tags to this recipe
+        <textarea name="tags" placeholder="each tag should be on a separate row" rows="4" cols="40" id="tag-box"></textarea>
+      </label>
+      -->
+      <button onclick="uploadRecipe()" id="submit-button" type="submit">Submit</button>
     </form>
 
     <script> //TODO change this, so we upload recipes not files (check around 35:00)
     async function uploadRecipe(){
+      const formEl = document.querySelector('.form');
+      const formData = new FormData(formEl);
+      const data = Object.fromEntries(formData);
+      console.log(data);
+      await fetch("http://localhost:8080/recipes/submit",{
+        method: "POST",
+        headers:{
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      }).then(result => result.json()).then(text => alert(text));
+    }
+
+    /*
+    async function uploadRecipe(){ //onclick="uploadRecipe()"
       let formData = new FormData();
       formData.append("data", fileupload.files[0]);
-      await fetch("http://localhost:8080/recipes",{
+      await fetch("http://localhost:8080/recipes/submit",{
         method: "POST",
         body: formData
       }).then(result => result.text()).then(text => alert(text));
     }
+    */
   </script>
 </body>
 </html>
