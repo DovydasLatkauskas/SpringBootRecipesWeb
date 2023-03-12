@@ -34,10 +34,30 @@
         <textarea name="tags" placeholder="each tag should be on a separate row" rows="4" cols="40" id="tag-box"></textarea>
       </label>
       -->
-      <button onclick="uploadRecipe()" id="submit-button" type="submit">Submit</button>
+      <button type="submit" id="submit-button">Submit</button>
     </form>
 
-    <script> //TODO change this, so we upload recipes not files (check around 35:00)
+    <script>
+    const formEl = document.querySelector('#recipe-form') // find the form as an element
+    formEl.addEventListener('submit', event => {
+      event.preventDefault(); // prevents the form from resetting
+      console.log("test 3")
+      let recipe = {
+        name: document.getElementById('name').value,
+        author: document.getElementById('author').value,
+        prepTimeMinutes: document.getElementById('prep-time').value,
+        cookTimeMinutes: document.getElementById('cook-time').value        
+      }
+      fetch("http://localhost:8080/recipes/submit",{
+        method: "POST",
+        headers:{
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(recipe)
+      }).then(result => result.text()).then(text => alert("Submitted: " + text));
+      console.log(recipe);
+    });
+
     async function uploadRecipe(){
       const formEl = document.querySelector('.form');
       const formData = new FormData(formEl);
@@ -48,8 +68,8 @@
         headers:{
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
-      }).then(result => result.json()).then(text => alert(text));
+        body: JSON.stringify(recipe)
+      }).then(result => result.text()).then(text => alert(text));
     }
 
     /*

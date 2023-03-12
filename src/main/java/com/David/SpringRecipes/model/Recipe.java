@@ -1,5 +1,6 @@
 package com.David.SpringRecipes.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.PositiveOrZero;
 
@@ -11,6 +12,7 @@ public class Recipe {
     private String name; // name will be unique and used as id instead of an integer id in order to make linking to recipes nicer
     @NotEmpty
     private String author;
+    @JsonIgnore // doesn't show the list in the pop-up after submitting the form
     private List<String> tags;
     @NotEmpty
     @PositiveOrZero
@@ -18,10 +20,11 @@ public class Recipe {
     @NotEmpty
     @PositiveOrZero
     private Integer cookTimeMinutes;
+    @JsonIgnore // doesn't show the list in the pop-up after submitting the form
     private List<String> ingredients;
+    @JsonIgnore // doesn't show the list in the pop-up after submitting the form
     private List<String> directions;
     // for testing purposes
-    public Recipe(){}
     public Recipe(String name, String author, Integer prepTimeMinutes, Integer cookTimeMinutes) {
         this.name = name; //TODO check if no recipe is called {name} already
         this.author = author;
