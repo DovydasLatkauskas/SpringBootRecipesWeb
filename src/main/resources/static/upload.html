@@ -12,27 +12,26 @@
     </header>
     <form method="post" id="recipe-form">
       <label for="name" id="name-label">Name of your recipe
-        <input type="text" id="name" required placeholder="recipe name">
+        <input name="name" type="text" id="name" required placeholder="recipe name">
       </label>
       <label for="author" id="author-label">Your name
-        <input type="text" id="author" required placeholder="author's name">
+        <input name="author" type="text" id="author" required placeholder="author's name">
       </label>
-      <label for="prep-time" id="prep-time-label">Preparation time
-        <input type="number" id="prep-time" min="0" required placeholder="prep time">
+      <label for="prep-time" id="prep-time-label">Preparation time in minutes
+        <input name="prepTimeMinutes" type="number" id="prep-time" min="0" required placeholder="prep time">
       </label>
-      <label for="cook-time" id="cook-time-label">Cooking time
-        <input type="number" id="cook-time" min="0" required placeholder="cook time">
+      <label for="cook-time" id="cook-time-label">Cooking time in minutes
+        <input name="cookTimeMinutes" type="number" id="cook-time" min="0" required placeholder="cook time">
       </label>
       <label for="ingredient-box">What ingredients does one need for this recipe?
-        <textarea placeholder="type each ingredient on a separate row using the enter button" rows="4" cols="40" id="ingredient-box"></textarea>
+        <textarea name="ingredients" placeholder="type each ingredient on a separate row using the enter button" rows="4" cols="40" id="ingredient-box"></textarea>
       </label>
       <label for="direction-box">How does one prepare this dish?
-        <textarea placeholder="write each direction on a separate row using the enter button" rows="4" cols="40" id="directions-box"></textarea>
+        <textarea name="directions" placeholder="write each direction on a separate row using the enter button" rows="4" cols="40" id="directions-box"></textarea>
       </label>
+      <button id="upload-button" onclick="uploadRecipe()"> Submit </button>
     </form>
 
-    <!-- <input id="recipe-upload" type="file" name="recipe-upload"> -->
-    <button id="upload-button" onclick="uploadRecipe()"> Upload </button>
     <script> //TODO change this, so we upload recipes not files (check around 35:00)
     async function uploadRecipe(){
       let formData = new FormData();
