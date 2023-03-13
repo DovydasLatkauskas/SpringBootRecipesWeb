@@ -2,18 +2,18 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="${recipe.name}"></title>
 </head>
 <body>
     <nav></nav> <!-- just copy the navbar -->
     <main>
-        <h1 id="name"></h1>
-        <div id="author">By:<span id="author-name"></span></div>
+        <h1 th:text="${recipe.name}" id="name"></h1>
+        <div id="author">By: <span th:text="${recipe.author}"></span></div>
         <hr>
-        <p id="description"></p>
+        <p th:text="${recipe.description}" id="description"></p>
         <ul>
-            <li id="prep-time">⏲️ Preparation time: <span></span> minutes</li>
-            <li id="cook-time">🍳 Cooking time: <span></span> minutes</li>
+            <li id="prep-time">⏲️ Preparation time: <span th:text="${recipe.prepTimeMinutes}"></span> minutes</li>
+            <li id="cook-time">🍳 Cooking time: <span th:text="${recipe.cookTimeMinutes}"></span> minutes</li>
         </ul>
         <section>
             <h2>Ingredients</h2>

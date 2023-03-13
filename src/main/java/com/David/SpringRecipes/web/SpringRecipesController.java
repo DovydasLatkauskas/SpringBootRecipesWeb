@@ -32,12 +32,13 @@ public class SpringRecipesController {
         return db.values();
     }
     @GetMapping("/recipes/{name}")
-    public Recipe getByName(@PathVariable String name) {
+    public String getByName(@PathVariable String name, Model model) {
         Recipe recipe = db.get(name);
         if(recipe == null){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
-        return recipe;
+        model.addAttribute("recipe", recipe);
+        return "recipe";
     }
 
     @GetMapping("/recipes")
