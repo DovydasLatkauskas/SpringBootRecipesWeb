@@ -23,7 +23,6 @@
       <label for="cook-time" id="cook-time-label">Cooking time in minutes
         <input name="cookTimeMinutes" type="number" id="cook-time" min="0" required placeholder="cook time">
       </label>
-      <!--
       <label for="ingredient-box">What ingredients does one need for this recipe?
         <textarea name="ingredients" placeholder="type each ingredient on a separate row using the enter button" rows="4" cols="40" id="ingredient-box"></textarea>
       </label>
@@ -33,7 +32,6 @@
       <label for="tag-box">Add tags to this recipe
         <textarea name="tags" placeholder="each tag should be on a separate row" rows="4" cols="40" id="tag-box"></textarea>
       </label>
-      -->
       <button type="submit" id="submit-button">Submit</button>
     </form>
 
@@ -41,13 +39,17 @@
     const formEl = document.querySelector('#recipe-form') // find the form as an element
     formEl.addEventListener('submit', event => {
       event.preventDefault(); // prevents the form from resetting
-      console.log("test 3")
-      let recipe = {
+
+      let recipe = { // we create an object for the recipe we will be pushing to the backend
         name: document.getElementById('name').value,
         author: document.getElementById('author').value,
         prepTimeMinutes: document.getElementById('prep-time').value,
-        cookTimeMinutes: document.getElementById('cook-time').value        
+        cookTimeMinutes: document.getElementById('cook-time').value,
+        tags: document.getElementById('tag-box').value.split('\n'), // we turn each line into a element in a list
+        ingredients: document.getElementById('ingredient-box').value.split('\n'),
+        directions: document.getElementById('direction-box').value.split('\n')
       }
+      
       fetch("http://localhost:8080/recipes/submit",{
         method: "POST",
         headers:{
@@ -71,17 +73,6 @@
         body: JSON.stringify(recipe)
       }).then(result => result.text()).then(text => alert(text));
     }
-
-    /*
-    async function uploadRecipe(){ //onclick="uploadRecipe()"
-      let formData = new FormData();
-      formData.append("data", fileupload.files[0]);
-      await fetch("http://localhost:8080/recipes/submit",{
-        method: "POST",
-        body: formData
-      }).then(result => result.text()).then(text => alert(text));
-    }
-    */
   </script>
 </body>
 </html>
