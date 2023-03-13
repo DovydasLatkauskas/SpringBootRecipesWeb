@@ -13,7 +13,7 @@ public class Recipe {
     @NotEmpty
     private String author;
     @JsonIgnore // doesn't show the list in the pop-up after submitting the form
-    private List<String> tags;
+    private String[] tags;
     @NotEmpty
     @PositiveOrZero
     private Integer prepTimeMinutes;
@@ -21,9 +21,9 @@ public class Recipe {
     @PositiveOrZero
     private Integer cookTimeMinutes;
     @JsonIgnore // doesn't show the list in the pop-up after submitting the form
-    private List<String> ingredients;
+    private String[] ingredients;
     @JsonIgnore // doesn't show the list in the pop-up after submitting the form
-    private List<String> directions;
+    private String[] directions;
     // for testing purposes
     public Recipe(String name, String author, Integer prepTimeMinutes, Integer cookTimeMinutes) {
         this.name = name; //TODO check if no recipe is called {name} already
@@ -31,8 +31,8 @@ public class Recipe {
         this.prepTimeMinutes = prepTimeMinutes;
         this.cookTimeMinutes = cookTimeMinutes;
     }
-    public Recipe(String name, String author, List<String> tags, Integer prepTimeMinutes, Integer cookTimeMinutes,
-                  List<String> ingredients, List<String> directions) {
+    public Recipe(String name, String author, String[] tags, Integer prepTimeMinutes, Integer cookTimeMinutes,
+                  String[] ingredients, String[] directions) {
         this.name = name; //TODO check if no recipe is called {name} already
         this.author = author;
         this.tags = tags;
@@ -59,11 +59,11 @@ public class Recipe {
         this.author = author;
     }
 
-    public List<String> getTags() {
+    public String[] getTags() {
         return tags;
     }
 
-    public void setTags(List<String> tags) {
+    public void setTags(String[] tags) {
         this.tags = tags;
     }
 
@@ -83,19 +83,19 @@ public class Recipe {
         this.cookTimeMinutes = cookTimeMinutes;
     }
 
-    public List<String> getIngredients() {
+    public String[] getIngredients() {
         return ingredients;
     }
 
-    public void setIngredients(List<String> ingredients) {
+    public void setIngredients(String[] ingredients) {
         this.ingredients = ingredients;
     }
 
-    public List<String> getDirections() {
+    public String[] getDirections() {
         return directions;
     }
 
-    public void setDirections(List<String> directions) {
+    public void setDirections(String[] directions) {
         this.directions = directions;
     }
 }

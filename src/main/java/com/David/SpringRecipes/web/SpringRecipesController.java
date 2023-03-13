@@ -11,10 +11,10 @@ import java.util.*;
 @RestController
 public class SpringRecipesController {
     // for testing purposes only
-    Recipe testRecipe1 = new Recipe("Pasta", "Peter", new ArrayList<>(Arrays.asList("Buenos Aires", "Córdoba", "La Plata")), 5, 10,
-            new ArrayList<>(Arrays.asList("Buenos Aires", "Córdoba", "La Plata")), new ArrayList<>(Arrays.asList("Buenos Aires", "Córdoba", "La Plata")));
-    Recipe testRecipe2 = new Recipe("Lasagna", "Garfield", new ArrayList<>(Arrays.asList("Buenos Aires", "Córdoba", "La Plata")), 5, 10,
-            new ArrayList<>(Arrays.asList("Buenos Aires", "Córdoba", "La Plata")), new ArrayList<>(Arrays.asList("Buenos Aires", "Córdoba", "La Plata")));
+    Recipe testRecipe1 = new Recipe("Pasta", "Peter", new String[]{"Buenos Aires", "Córdoba", "La Plata"}, 5, 10,
+            new String[]{"Buenos Aires", "Córdoba", "La Plata"}, new String[]{"Buenos Aires", "Córdoba", "La Plata"});
+    Recipe testRecipe2 = new Recipe("Lasagna", "Garfield", new String[]{"Buenos Aires", "Córdoba", "La Plata"}, 5, 10,
+            new String[]{"Buenos Aires", "Córdoba", "La Plata"}, new String[]{"Buenos Aires", "Córdoba", "La Plata"});
     private Map<String, Recipe> db = new HashMap<>(){{
         put("Pasta", testRecipe1);
         put("Lasagna", testRecipe2);
