@@ -12,6 +12,8 @@ public class Recipe {
     private String name; // name will be unique and used as id instead of an integer id in order to make linking to recipes nicer
     @NotEmpty
     private String author;
+    @NotEmpty
+    private String description;
     @JsonIgnore // doesn't show the list in the pop-up after submitting the form
     private String[] tags;
     @PositiveOrZero
@@ -32,10 +34,11 @@ public class Recipe {
         this.prepTimeMinutes = prepTimeMinutes;
         this.cookTimeMinutes = cookTimeMinutes;
     }
-    public Recipe(String name, String author, String[] tags, Integer prepTimeMinutes, Integer cookTimeMinutes,
+    public Recipe(String name, String author, String description, String[] tags, Integer prepTimeMinutes, Integer cookTimeMinutes,
                   String[] ingredients, String[] directions) {
         this.name = name; //TODO check if no recipe is called {name} already
         this.author = author;
+        this.description = description;
         this.tags = tags;
         this.prepTimeMinutes = prepTimeMinutes;
         this.cookTimeMinutes = cookTimeMinutes;
@@ -58,6 +61,13 @@ public class Recipe {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String[] getTags() {

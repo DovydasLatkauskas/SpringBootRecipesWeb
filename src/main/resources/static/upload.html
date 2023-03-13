@@ -16,6 +16,9 @@
       <label for="author" id="author-label">Your name
         <input name="author" type="text" id="author" required placeholder="author's name">
       </label>
+      <label for="description-box">Add a description of your recipe
+        <textarea name="description" placeholder="the description of your dish" rows="4" cols="40" id="description-box"></textarea>
+      </label>
       <label for="prep-time" id="prep-time-label">Preparation time in minutes
         <input name="prepTimeMinutes" type="number" id="prep-time" min="0" required placeholder="prep time">
       </label>
@@ -42,6 +45,7 @@
       let recipe = { // we create an object for the recipe we will be pushing to the backend
         name: document.getElementById('name').value,
         author: document.getElementById('author').value,
+        description: document.getElementById('description-box').value,
         prepTimeMinutes: document.getElementById('prep-time').value,
         cookTimeMinutes: document.getElementById('cook-time').value,
         tags: document.getElementById('tag-box').value.split('\n'), // we turn each line into a element in a list
