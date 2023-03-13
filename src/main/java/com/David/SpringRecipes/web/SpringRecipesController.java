@@ -10,7 +10,6 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.*;
 
-//@RestController
 @Controller
 public class SpringRecipesController {
     // for testing purposes only
@@ -18,9 +17,9 @@ public class SpringRecipesController {
             new String[]{"Buenos Aires", "Córdoba", "La Plata"}, new String[]{"Buenos Aires", "Córdoba", "La Plata"});
     Recipe testRecipe2 = new Recipe("Lasagna", "Garfield", new String[]{"Buenos Aires", "Córdoba", "La Plata"}, 5, 10,
             new String[]{"Buenos Aires", "Córdoba", "La Plata"}, new String[]{"Buenos Aires", "Córdoba", "La Plata"});
-    private ArrayList<Recipe> db = new ArrayList<Recipe>(){{
-        add(testRecipe1);
-        add(testRecipe2);
+    private Map<String, Recipe> db = new HashMap<>(){{
+        put("Pasta", testRecipe1);
+        put("Lasagna", testRecipe2);
     }};
 
 
@@ -30,34 +29,34 @@ public class SpringRecipesController {
     }
     @GetMapping("/all-recipes")
     public Collection<Recipe> get() {
-        return db;
+        return db.values();
     }
-//    @GetMapping("/recipes/{name}")
-//    public Recipe getByName(@PathVariable String name) {
-//        Recipe recipe = db.get(name);
-//        if(recipe == null){
-//            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-//        }
-//        return recipe;
-//    }
+    @GetMapping("/recipes/{name}")
+    public Recipe getByName(@PathVariable String name) {
+        Recipe recipe = db.get(name);
+        if(recipe == null){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        return recipe;
+    }
 
     @GetMapping("/recipes")
     public String recipes(Model model) {
-        ArrayList<Recipe> recipes = db;
+        Collection<Recipe> recipes = db.values();
         model.addAttribute("recipes", recipes);
         return "recipes-list";
     }
 
-//    @DeleteMapping("/recipes/{name}")
-//    public void delete(@PathVariable String name){
-//        Recipe recipe = db.remove(name);
-//        if(recipe == null){
-//            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-//        }
-//    }
+    @DeleteMapping("/recipes/{name}")
+    public void delete(@PathVariable String name){
+        Recipe recipe = db.remove(name);
+        if(recipe == null){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+    }
     @PostMapping(value = "/recipes/submit")
     public Recipe create(@RequestBody @Valid Recipe recipe){
-        db.add(recipe);
+        db.put(recipe.getName(), recipe);
         return recipe;
     }
 }
