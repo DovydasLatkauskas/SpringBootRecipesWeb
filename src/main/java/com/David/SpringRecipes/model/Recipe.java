@@ -14,10 +14,8 @@ public class Recipe {
     private String author;
     @JsonIgnore // doesn't show the list in the pop-up after submitting the form
     private String[] tags;
-    @NotEmpty
     @PositiveOrZero
     private Integer prepTimeMinutes;
-    @NotEmpty
     @PositiveOrZero
     private Integer cookTimeMinutes;
     @JsonIgnore // doesn't show the list in the pop-up after submitting the form
@@ -25,6 +23,9 @@ public class Recipe {
     @JsonIgnore // doesn't show the list in the pop-up after submitting the form
     private String[] directions;
     // for testing purposes
+    public Recipe(){ //empty constructor
+
+    }
     public Recipe(String name, String author, Integer prepTimeMinutes, Integer cookTimeMinutes) {
         this.name = name; //TODO check if no recipe is called {name} already
         this.author = author;

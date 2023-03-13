@@ -45,7 +45,7 @@ public class SpringRecipesController {
         }
     }
     @PostMapping(value = "/recipes/submit")
-    public Recipe create(@RequestBody Recipe recipe){
+    public Recipe create(@RequestBody @Valid Recipe recipe){
         db.put(recipe.getName(), recipe);
         return recipe;
     }
