@@ -24,8 +24,14 @@
     </header>
     <main>
         <ul>
-            <li th:each="recipe : ${recipes}"><a th:text="${recipe.name}">Spaghetti with meatballs</a></li>
+            <li th:each="recipe : ${recipes}"><a th:text="${recipe.name}"></a></li>
         </ul>
     </main>
+    <footer>
+        <section id="about-project">
+            <h3>About project</h3>
+            <!-- Write about why was this made, how the website works and tech stack-->
+        </section>
+    </footer>
 </body>
 </html>
