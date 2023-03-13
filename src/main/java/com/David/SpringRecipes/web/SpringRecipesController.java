@@ -3,6 +3,7 @@ package com.David.SpringRecipes.web;
 import com.David.SpringRecipes.model.Recipe;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -25,7 +26,7 @@ public class SpringRecipesController {
     public String hello(){
         return "Hello world!";
     }
-    @GetMapping("/recipes")
+    @GetMapping("/all-recipes")
     public Collection<Recipe> get() {
         return db.values();
     }
@@ -37,6 +38,14 @@ public class SpringRecipesController {
         }
         return recipe;
     }
+
+    @GetMapping("/recipes")
+    public String recipes(Model model) {
+        Collection<Recipe> recipes = db.values();
+        model.addAttribute("recipes", recipes);
+        return "recipes-list";
+    }
+
     @DeleteMapping("/recipes/{name}")
     public void delete(@PathVariable String name){
         Recipe recipe = db.remove(name);
@@ -49,7 +58,4 @@ public class SpringRecipesController {
         db.put(recipe.getName(), recipe);
         return recipe;
     }
-
-    //@GetMapping("/{name}")
-    //public Recipe get(){ return recipeService.get();}
 }
