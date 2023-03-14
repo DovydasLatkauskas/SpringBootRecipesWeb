@@ -24,14 +24,14 @@ public class Recipe {
 
     }
     public Recipe(String name, String author, Integer prepTimeMinutes, Integer cookTimeMinutes) {
-        this.name = name; //TODO check if no recipe is called {name} already
+        this.name = name;
         this.author = author;
         this.prepTimeMinutes = prepTimeMinutes;
         this.cookTimeMinutes = cookTimeMinutes;
     }
     public Recipe(String name, String author, String description, String[] tags, Integer prepTimeMinutes, Integer cookTimeMinutes,
                   String[] ingredients, String[] directions) {
-        this.name = name; //TODO check if no recipe is called {name} already
+        this.name = name;
         this.author = author;
         this.description = description;
         this.tags = tags;
@@ -46,7 +46,6 @@ public class Recipe {
     }
 
     public void setName(String name) {
-        //TODO check if no recipe is called {name} already
         this.name = name;
     }
 
