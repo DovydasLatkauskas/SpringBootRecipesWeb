@@ -12,3 +12,4 @@ Just the JRE (Java runtime environment)
 
 # Use
 Download SpringRecipes1.0.0.jar and run it in bash with "java -jar SpringRecipes1.0.0.jar"
+Then open localhost:8080 in your browser to use the website
