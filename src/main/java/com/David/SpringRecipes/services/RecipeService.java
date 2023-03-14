@@ -31,20 +31,23 @@ public class RecipeService {
         put(spaghettiCarbonara.getName(), spaghettiCarbonara);
         put(chickenParmesan.getName(), chickenParmesan);
         put(chocolateChipCookies.getName(), chocolateChipCookies);
-
     }};
+    // sorry for the mess :D
+
+
 
     public Recipe get(String name) {
-        return db.get(name);
+        return db.get(name); // function for getting a recipe by name
     }
+
     public Collection<Recipe> getAll() {
-        return db.values();
+        return db.values(); //function for getting all recipes in the database as its currently represented
     }
     public Recipe remove(String name) {
-        return db.remove(name);
+        return db.remove(name); //function for removing a recipe by name
     }
 
     public void create(Recipe recipe) {
-        db.put(recipe.getName(), recipe);
+        db.put(recipe.getName(), recipe); //function for adding a recipe to the database
     }
 }

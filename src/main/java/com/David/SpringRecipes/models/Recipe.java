@@ -6,21 +6,22 @@ import jakarta.validation.constraints.PositiveOrZero;
 
 // here we are modelling a recipe, this is the only object we will be passing to the website
 public class Recipe {
-    @NotEmpty
+    @NotEmpty //validation that we arent creating an empty recipe
     private String name; // name will be unique and used as id instead of an integer id in order to make linking to recipes nicer
     @NotEmpty
     private String author;
     @NotEmpty
     private String description;
     private String[] tags;
-    @PositiveOrZero
+    @PositiveOrZero //validation for creating the recipe
     private Integer prepTimeMinutes;
     @PositiveOrZero
     private Integer cookTimeMinutes;
     private String[] ingredients;
     private String[] directions;
-    // for testing purposes
-    public Recipe(){ //empty constructor
+    
+    //Constructors
+    public Recipe(){
 
     }
     public Recipe(String name, String author, Integer prepTimeMinutes, Integer cookTimeMinutes) {
@@ -30,7 +31,7 @@ public class Recipe {
         this.cookTimeMinutes = cookTimeMinutes;
     }
     public Recipe(String name, String author, String description, String[] tags, Integer prepTimeMinutes, Integer cookTimeMinutes,
-                  String[] ingredients, String[] directions) {
+                  String[] ingredients, String[] directions) { //the full constructor
         this.name = name;
         this.author = author;
         this.description = description;
@@ -41,6 +42,7 @@ public class Recipe {
         this.directions = directions;
     }
 
+    // getters and setters
     public String getName() {
         return name;
     }

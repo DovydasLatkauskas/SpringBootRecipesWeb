@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class SpringRecipesApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringRecipesApplication.class, args);
+		SpringApplication.run(SpringRecipesApplication.class, args); // no args taken
 	}
 
 }

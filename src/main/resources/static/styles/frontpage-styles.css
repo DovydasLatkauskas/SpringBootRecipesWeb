@@ -20,18 +20,18 @@ body {
     overflow: hidden;
   }
   
-  .nav ul {
+.nav ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
     text-align: center;
   }
   
-  .nav li {
+.nav li {
     display: inline-block;
   }
   
-  .nav a {
+.nav a {
     display: block;
     color: white;
     text-align: center;
@@ -39,7 +39,7 @@ body {
     text-decoration: none;
   }
   
-  .nav a:hover {
+.nav a:hover {
     background-color: #111;
   }
 
@@ -54,6 +54,7 @@ h1 {
 }
 
 blockquote {
+    display: block;
     font-size: 1.2em;
     font-style: italic;
     color: var(--dark-gray);
@@ -64,7 +65,6 @@ blockquote {
     max-width: 1000px;
 }
 
-/* Recipe list */
 #recipes-list {
     list-style: none;
     margin-top: 50px;
@@ -89,15 +89,12 @@ blockquote {
     color: var(--off-white);
 }
 
-footer {
-    margin-top: 50px;
-    text-align: center;
-}
-
 #about-project {
     font-size: 1.2em;
     color: var(--dark-gray);
-    margin-bottom: 20px;
+    margin: 40px auto;
+    max-width: 1000px;
+    text-align: center;
 }
 
 #about-project a {
