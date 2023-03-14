@@ -11,6 +11,7 @@ body {
   color: var(--dark-gray);
   font-family: Arial, sans-serif;
   margin: 0;
+  font-size: 20px;
 }
 
 .nav {
@@ -97,13 +98,18 @@ h2 {
   margin: 0 0 10px 0;
 }
 
-ul {
-  list-style: none;
+#ingredients-section ul {
+  list-style-type: disc;
   margin: 0;
+  margin-left:20px;
   padding: 0;
 }
 
-ul li {
+ul li, ol li {
+  margin-bottom: 5px;
+}
+
+#directions-section li{
   margin-bottom: 5px;
 }
 
@@ -113,9 +119,13 @@ hr {
   margin: 20px 0;
 }
 
-#tags {
-  margin: 0;
-  padding: 0;
+#tags li {
+  display: inline-block;
+  font-size: 1.5rem;
+  margin-right: 10px;
+  background-color: #f2f2f2;
+  padding: 5px 10px;
+  border-radius: 5px;
 }
 
 #delete-section {

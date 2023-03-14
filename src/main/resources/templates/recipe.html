@@ -27,7 +27,7 @@
         </section>
         <section id="directions-section">
             <h2>Directions</h2>
-            <ul><li th:each="direction : ${recipe.directions}" th:text="${direction}"></li></ul>
+            <ol><li th:each="direction : ${recipe.directions}" th:text="${direction}"></li></ul>
         </section>
         <hr>
         <ul id="tags"><li th:each="tag : ${recipe.tags}" th:text="${tag}"></li></ul>
