@@ -22,19 +22,14 @@ public class Recipe {
     private String[] ingredients;
     @JsonIgnore // doesn't show the list in the pop-up after submitting the form
     private String[] directions;
-    // for testing purposes
+    
+
     public Recipe(){ //empty constructor
 
     }
-    public Recipe(String name, String author, Integer prepTimeMinutes, Integer cookTimeMinutes) {
-        this.name = name; //TODO check if no recipe is called {name} already
-        this.author = author;
-        this.prepTimeMinutes = prepTimeMinutes;
-        this.cookTimeMinutes = cookTimeMinutes;
-    }
     public Recipe(String name, String author, String description, String[] tags, Integer prepTimeMinutes, Integer cookTimeMinutes,
                   String[] ingredients, String[] directions) {
-        this.name = name; //TODO check if no recipe is called {name} already
+        this.name = name;
         this.author = author;
         this.description = description;
         this.tags = tags;
@@ -49,7 +44,6 @@ public class Recipe {
     }
 
     public void setName(String name) {
-        //TODO check if no recipe is called {name} already
         this.name = name;
     }
 
