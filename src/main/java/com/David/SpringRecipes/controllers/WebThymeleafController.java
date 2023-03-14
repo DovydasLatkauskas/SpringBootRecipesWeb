@@ -1,7 +1,8 @@
 package com.David.SpringRecipes.controllers;
 
-import com.David.SpringRecipes.model.Recipe;
-import jakarta.validation.Valid;
+import com.David.SpringRecipes.models.Recipe;
+import com.David.SpringRecipes.services.RecipeService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,19 +13,15 @@ import java.util.*;
 
 @Controller
 public class WebThymeleafController {
-    // for testing purposes only
-    Recipe testRecipe1 = new Recipe("Pasta", "Peter", "this is Pasta", new String[]{"Buenos Aires", "Córdoba", "La Plata"}, 5, 10,
-            new String[]{"Buenos Aires", "Córdoba", "La Plata"}, new String[]{"Buenos Aires", "Córdoba", "La Plata"});
-    Recipe testRecipe2 = new Recipe("Lasagna", "Garfield", "Garfield's favourite dish", new String[]{"Buenos Aires", "Córdoba", "La Plata"}, 5, 10,
-            new String[]{"Buenos Aires", "Córdoba", "La Plata"}, new String[]{"Buenos Aires", "Córdoba", "La Plata"});
-    private Map<String, Recipe> db = new HashMap<>(){{
-        put("Pasta", testRecipe1);
-        put("Lasagna", testRecipe2);
-    }};
+    private final RecipeService recipeService;
+
+    public WebThymeleafController(@Autowired RecipeService recipeService) {
+        this.recipeService = recipeService;
+    }
 
     @GetMapping("/{name}")
     public String getByName(@PathVariable String name, Model model) {
-        Recipe recipe = db.get(name);
+        Recipe recipe = recipeService.get(name);
         if(recipe == null){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
@@ -33,7 +30,7 @@ public class WebThymeleafController {
     }
     @GetMapping("/")
     public String allRecipes(Model model) {
-        Collection<Recipe> recipes = db.values();
+        Collection<Recipe> recipes = recipeService.getAll();
         model.addAttribute("recipes", recipes);
         return "recipes-list";
     }
@@ -43,7 +40,7 @@ public class WebThymeleafController {
     }
     @GetMapping("/{name}/delete")
     public String deleteRecipe(@PathVariable("name")String name){
-        Recipe recipe = db.remove(name);
+        Recipe recipe = recipeService.remove(name);
         if(recipe == null){
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }

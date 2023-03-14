@@ -1,30 +1,24 @@
 package com.David.SpringRecipes.controllers;
 
-import com.David.SpringRecipes.model.Recipe;
+import com.David.SpringRecipes.models.Recipe;
+import com.David.SpringRecipes.services.RecipeService;
 import jakarta.validation.Valid;
-import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
 
 @RestController
 public class WebRestController {
-    // for testing only
-    Recipe testRecipe1 = new Recipe("Pasta", "Peter", "this is Pasta", new String[]{"Buenos Aires", "Córdoba", "La Plata"}, 5, 10,
-            new String[]{"Buenos Aires", "Córdoba", "La Plata"}, new String[]{"Buenos Aires", "Córdoba", "La Plata"});
-    Recipe testRecipe2 = new Recipe("Lasagna", "Garfield", "Garfield's favourite dish", new String[]{"Buenos Aires", "Córdoba", "La Plata"}, 5, 10,
-            new String[]{"Buenos Aires", "Córdoba", "La Plata"}, new String[]{"Buenos Aires", "Córdoba", "La Plata"});
-    private Map<String, Recipe> db = new HashMap<>(){{
-        put("Pasta", testRecipe1);
-        put("Lasagna", testRecipe2);
-    }};
+    private final RecipeService recipeService;
+
+    public WebRestController(@Autowired RecipeService recipeService) {
+        this.recipeService = recipeService;
+    }
 
     @GetMapping("/all-recipes")
     public Collection<Recipe> get() {
-        return db.values();
+        return recipeService.getAll();
     }
 
 //    @DeleteMapping("/delete/{name}")
@@ -36,7 +30,7 @@ public class WebRestController {
 //    }
     @PostMapping(value = "/upload")
     public Recipe create(@RequestBody @Valid Recipe recipe){
-        db.put(recipe.getName(), recipe);
+        recipeService.create(recipe);
         return recipe;
     }
 }

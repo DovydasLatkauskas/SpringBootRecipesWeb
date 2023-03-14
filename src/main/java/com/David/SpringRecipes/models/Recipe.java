@@ -1,10 +1,8 @@
-package com.David.SpringRecipes.model;
+package com.David.SpringRecipes.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.PositiveOrZero;
-
-import java.util.List;
 
 // here we are modelling a recipe, this is the only object we will be passing to the website
 public class Recipe {
