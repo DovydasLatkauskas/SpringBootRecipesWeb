@@ -31,11 +31,22 @@ public class WebThymeleafController {
         model.addAttribute("recipe", recipe);
         return "recipe";
     }
-
     @GetMapping("/")
-    public String recipes(Model model) {
+    public String allRecipes(Model model) {
         Collection<Recipe> recipes = db.values();
         model.addAttribute("recipes", recipes);
         return "recipes-list";
+    }
+    @GetMapping("/upload")
+    public String uploadRecipe(Model model){
+        return "upload";
+    }
+    @GetMapping("/{name}/delete")
+    public String deleteRecipe(@PathVariable("name")String name){
+        Recipe recipe = db.remove(name);
+        if(recipe == null){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        return "redirect:/";
     }
 }

@@ -3,11 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/upload-styles.css">
+    <link th:href="@{/styles/upload-styles.css}" rel="stylesheet" />
     <title>Upload Recipe</title>
 </head>
 <body>
-    <nav></nav>
+  <nav id="navbar" class="nav">
+    <ul class="nav-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/upload">Submit a recipe</a></li>
+    </ul>
+  </nav>
     <header>
         <h2>Recipe Upload</h2>
     </header>
@@ -55,29 +60,15 @@
         directions: document.getElementById('direction-box').value.split('\n')
       }
       
-      fetch("http://localhost:8080/recipes/submit",{
+      fetch("http://localhost:8080/upload",{
         method: "POST",
         headers:{
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(recipe)
-      }).then(result => result.text()).then(text => alert("Submitted: " + text));
+      }).then(result => result.text()).then(text => alert("Successfully submitted " + recipe.name +"!"));
       console.log(recipe);
     });
-
-    async function uploadRecipe(){
-      const formEl = document.querySelector('.form');
-      const formData = new FormData(formEl);
-      const data = Object.fromEntries(formData);
-      console.log(data);
-      await fetch("http://localhost:8080/recipes/submit",{
-        method: "POST",
-        headers:{
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(recipe)
-      }).then(result => result.text()).then(text => alert(text));
-    }
   </script>
 </body>
 </html>

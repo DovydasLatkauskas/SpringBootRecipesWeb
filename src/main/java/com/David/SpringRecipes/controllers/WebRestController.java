@@ -27,14 +27,14 @@ public class WebRestController {
         return db.values();
     }
 
-    @DeleteMapping("/recipes/{name}")
-    public void delete(@PathVariable String name){
-        Recipe recipe = db.remove(name);
-        if(recipe == null){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        }
-    }
-    @PostMapping(value = "/recipes/submit")
+//    @DeleteMapping("/delete/{name}")
+//    public void delete(@PathVariable String name){
+//        Recipe recipe = db.remove(name);
+//        if(recipe == null){
+//            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+//        }
+//    }
+    @PostMapping(value = "/upload")
     public Recipe create(@RequestBody @Valid Recipe recipe){
         db.put(recipe.getName(), recipe);
         return recipe;

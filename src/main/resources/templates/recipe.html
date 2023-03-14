@@ -6,7 +6,12 @@
     <link th:href="@{/styles/recipe-styles.css}" rel="stylesheet" />
 </head>
 <body>
-    <nav></nav> <!-- just copy the navbar -->
+    <nav id="navbar" class="nav">
+        <ul class="nav-list">
+            <li><a href="/">Home</a></li>
+            <li><a href="/upload">Submit a recipe</a></li>
+        </ul>
+    </nav>
     <main>
         <h1 th:text="${recipe.name}" id="name"></h1>
         <div id="author">By: <span th:text="${recipe.author}"></span></div>
@@ -27,5 +32,9 @@
         <hr>
         <ul id="tags"><li th:each="tag : ${recipe.tags}" th:text="${tag}"></li></ul>
     </main>
+    <footer>
+        <h6>Delete recipe</h6>
+        <a th:href="@{/{name}/delete(name=${recipe.name})}">Delete</a>
+    </footer>
 </body>
 </html>
