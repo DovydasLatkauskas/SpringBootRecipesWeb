@@ -17,7 +17,7 @@ public class WebRestController {
     }
 
     @GetMapping("/all-recipes")
-    public Collection<Recipe> get() {
+    public Iterable<Recipe> get() {
         return recipeService.getAll();
     }
 

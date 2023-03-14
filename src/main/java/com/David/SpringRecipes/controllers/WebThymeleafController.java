@@ -30,7 +30,7 @@ public class WebThymeleafController {
     }
     @GetMapping("/")
     public String allRecipes(Model model) {
-        Collection<Recipe> recipes = recipeService.getAll();
+        Iterable<Recipe> recipes = recipeService.getAll();
         model.addAttribute("recipes", recipes);
         return "recipes-list";
     }
@@ -40,10 +40,7 @@ public class WebThymeleafController {
     }
     @GetMapping("/{name}/delete")
     public String deleteRecipe(@PathVariable("name")String name){
-        Recipe recipe = recipeService.remove(name);
-        if(recipe == null){
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
-        }
+        recipeService.remove(name);
         return "redirect:/";
     }
 }

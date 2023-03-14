@@ -3,10 +3,14 @@ package com.David.SpringRecipes.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.PositiveOrZero;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 // here we are modelling a recipe, this is the only object we will be passing to the website
+@Table("RECIPES")
 public class Recipe {
     @NotEmpty
+    @Id
     private String name; // name will be unique and used as id instead of an integer id in order to make linking to recipes nicer
     @NotEmpty
     private String author;

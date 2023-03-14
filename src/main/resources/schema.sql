@@ -1,10 +1,10 @@
-create table if not exists recipes (
-    name varchar(255) PRIMARY KEY NOT NULL,
-    author varchar(255),
-    description varchar(2500),
-    prepTimeMinutes INT,
-    cookTimeMinutes INT,
-    ingredients varchar(2500),
-    directions varchar(2500),
-    tags varchar(2500)
+create table if not exists RECIPES (
+    NAME varchar(255) PRIMARY KEY NOT NULL,
+    AUTHOR varchar(255),
+    DESCRIPTION varchar(2500),
+    PREP_TIME_MINUTES INT,
+    COOK_TIME_MINUTES INT,
+    INGREDIENTS varchar(2500),
+    DIRECTIONS varchar(2500),
+    TAGS varchar(2500)
     );
