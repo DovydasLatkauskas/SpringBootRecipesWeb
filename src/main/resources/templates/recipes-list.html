@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Spring Recipes</title>
     <link th:href="@{/styles/frontpage-styles.css}" rel="stylesheet" />
+    <script src="http://localhost:35729/livereload.js"></script>
 </head>
 <body>
     <nav id="navbar" class="nav">
@@ -20,8 +21,8 @@
         </blockquote>
     </header>
     <main>
-        <ul>
-            <li th:each="recipe : ${recipes}"><a th:href="@{/{name}(name=${recipe.name})}" th:text="${recipe.name}"></a></li>
+        <ul id="recipes-list">
+            <li class="recipe-item" th:each="recipe : ${recipes}"><a th:href="@{/{name}(name=${recipe.name})}" th:text="${recipe.name}"></a></li>
         </ul>
     </main>
     <footer>
