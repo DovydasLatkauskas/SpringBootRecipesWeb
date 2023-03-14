@@ -21,7 +21,7 @@
     </header>
     <main>
         <ul>
-            <li th:each="recipe : ${recipes}"><a th:text="${recipe.name}"></a></li>
+            <li th:each="recipe : ${recipes}"><a th:href="@{/{name}(name=${recipe.name})}" th:text="${recipe.name}"></a></li>
         </ul>
     </main>
     <footer>
