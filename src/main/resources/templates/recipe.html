@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="${recipe.name}"></title>
+    <link href="../static/recipe-styles.css" rel="stylesheet">
 </head>
 <body>
     <nav></nav> <!-- just copy the navbar -->
@@ -17,14 +18,14 @@
         </ul>
         <section>
             <h2>Ingredients</h2>
-            <ul><li></li></ul>
+            <ul><li th:each="ingredient : ${recipe.ingredients}" th:text="${ingredient}"></li></ul>
         </section>
         <section>
             <h2>Directions</h2>
-            <ul><li></li></ul>
+            <ul><li th:each="direction : ${recipe.directions}" th:text="${direction}"></li></ul>
         </section>
         <hr>
-        <ul id="tags"><li></li></ul>
+        <ul id="tags"><li th:each="tag : ${recipe.tags}" th:text="${tag}"></li></ul>
     </main>
 </body>
 </html>
