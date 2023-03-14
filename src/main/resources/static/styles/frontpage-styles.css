@@ -2,7 +2,7 @@
     --main-green: #6db33f;
     --accent-green: #9ccc65;
     --light-green: #c5e1a5;
-    --off-white: #fbf0d1;
+    --off-white: #ffffff;
     --dark-gray: #333;
 }
 
@@ -14,26 +14,34 @@ body {
     margin:0;
 }
 
-#navbar {
-    background-color: var(--main-green);
-    padding: 10px;
+.nav {
+    font-size: 22px;
+    background-color: #6db33f;
+    overflow: hidden;
+  }
+  
+  .nav ul {
     margin: 0;
-}
-
-.nav-list {
-    font-size: 1.5rem;
-    padding: 10px;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-list li a {
-    color: var(--dark-gray);
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+  }
+  
+  .nav li {
+    display: inline-block;
+  }
+  
+  .nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
-    font-weight: bold;
-}
+  }
+  
+  .nav a:hover {
+    background-color: #111;
+  }
 
 header {
     text-align: center;

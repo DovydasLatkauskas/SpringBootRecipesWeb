@@ -1,44 +1,132 @@
-:root {
-    --main-bg-color: #6db33f;
-  }  
-
-header {
-    background-color: var(--main-bg-color);
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-size: 22px;
+    font-weight: bold;
+  }
+  
+  .nav {
+    background-color: #6db33f;
+    overflow: hidden;
+  }
+  
+  .nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+  }
+  
+  .nav li {
+    display: inline-block;
+  }
+  
+  .nav a {
+    display: block;
     color: white;
     text-align: center;
-    padding: 10px;
-}
-
-form {
-    margin: 20px;
-}
-
-label {
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  .nav a:hover {
+    background-color: #111;
+  }
+  
+  header {
+    background-color: #fff;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  
+  h2 {
+    margin: 0;
+    font-size: 36px;
+  }
+  
+  form {
+    width: 80%;
+    margin: auto;
+  }
+  
+  label {
     display: block;
     margin-bottom: 10px;
-}
-
-input[type="text"],
-input[type="number"],
-textarea {
+  }
+  
+  input[type="text"],
+  textarea,
+  input[type="number"] {
     width: 100%;
     padding: 10px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    border: none;
-    background-color: #f8f9fa;
-    margin-bottom: 10px;
     box-sizing: border-box;
-}
-
-button[type="submit"] {
-    background-color: var(--main-bg-color);
+    margin-top: 5px;
+    margin-bottom: 20px;
+    resize: vertical;
+  }
+  
+  textarea {
+    height: 100px;
+  }
+  
+  button[type="submit"] {
+    background-color: #333;
     color: white;
-    padding: 10px;
+    padding: 14px 20px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
-
-button[type="submit"]:hover {
-    background-color: #6c757d;
-}
+    display: block;
+    margin: 20px auto;
+    font-size: 20px;
+    width: 30vw;
+    min-width:300px;
+    max-width:600px;
+    height: 70px;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #111;
+  }
+  
+  #name-label,
+  #author-label,
+  #prep-time-label,
+  #cook-time-label {
+    font-weight: bold;
+  }
+  
+  #name,
+  #author,
+  #description-box,
+  #prep-time,
+  #cook-time,
+  #ingredient-box,
+  #direction-box,
+  #tag-box {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    resize: vertical;
+  }
+  
+  #description-box,
+  #ingredient-box,
+  #direction-box,
+  #tag-box {
+    height: 100px;
+  }  
