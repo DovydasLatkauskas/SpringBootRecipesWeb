@@ -12,15 +12,12 @@ public class Recipe {
     private String author;
     @NotEmpty
     private String description;
-    @JsonIgnore // doesn't show the list in the pop-up after submitting the form
     private String[] tags;
     @PositiveOrZero
     private Integer prepTimeMinutes;
     @PositiveOrZero
     private Integer cookTimeMinutes;
-    @JsonIgnore // doesn't show the list in the pop-up after submitting the form
     private String[] ingredients;
-    @JsonIgnore // doesn't show the list in the pop-up after submitting the form
     private String[] directions;
     // for testing purposes
     public Recipe(){ //empty constructor
