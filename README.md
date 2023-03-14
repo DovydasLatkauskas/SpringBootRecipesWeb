@@ -6,3 +6,9 @@ This website was made as a challenge to myself to create a full-stack website us
 
 # Improvement as a developer
 The aim of this project is to use best coding practices, object-oriented programming, modular design and code encapsulation principles.
+
+# Requirements
+Just the JRE (Java runtime environment)
+
+# Use
+Download SpringRecipes1.0.0.jar and run it in bash with "java -jar SpringRecipes1.0.0.jar"
