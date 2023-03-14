@@ -17,24 +17,23 @@
         <div id="author">By: <span th:text="${recipe.author}"></span></div>
         <hr>
         <p th:text="${recipe.description}" id="description"></p>
-        <ul>
+        <ul id="time-list">
             <li id="prep-time">⏲️ Preparation time: <span th:text="${recipe.prepTimeMinutes}"></span> minutes</li>
             <li id="cook-time">🍳 Cooking time: <span th:text="${recipe.cookTimeMinutes}"></span> minutes</li>
         </ul>
-        <section>
+        <section id="ingredients-section">
             <h2>Ingredients</h2>
             <ul><li th:each="ingredient : ${recipe.ingredients}" th:text="${ingredient}"></li></ul>
         </section>
-        <section>
+        <section id="directions-section">
             <h2>Directions</h2>
             <ul><li th:each="direction : ${recipe.directions}" th:text="${direction}"></li></ul>
         </section>
         <hr>
         <ul id="tags"><li th:each="tag : ${recipe.tags}" th:text="${tag}"></li></ul>
     </main>
-    <footer>
-        <h6>Delete recipe</h6>
-        <a th:href="@{/{name}/delete(name=${recipe.name})}">Delete</a>
-    </footer>
+    <section id="delete-section">
+        <a th:href="@{/{name}/delete(name=${recipe.name})}"><p>Delete</p></a>
+    </section>
 </body>
 </html>
