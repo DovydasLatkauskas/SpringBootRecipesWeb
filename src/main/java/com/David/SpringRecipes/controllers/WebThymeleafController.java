@@ -1,7 +1,6 @@
 package com.David.SpringRecipes.controllers;
 
 import com.David.SpringRecipes.models.Recipe;
-import com.David.SpringRecipes.repositories.MuscleGroups;
 import com.David.SpringRecipes.services.RecipeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -46,11 +45,5 @@ public class WebThymeleafController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
         return "redirect:/";
-    }
-
-    @GetMapping("/add-exercise")
-    public String addExercise(Model model){
-        model.addAttribute("muscleGroups", MuscleGroups.getMuscleGroups());
-        return "add-exercise";
     }
 }
