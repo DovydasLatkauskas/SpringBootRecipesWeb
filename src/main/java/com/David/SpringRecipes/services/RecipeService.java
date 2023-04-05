@@ -3,9 +3,7 @@ package com.David.SpringRecipes.services;
 import com.David.SpringRecipes.models.Recipe;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class RecipeService {
@@ -43,6 +41,20 @@ public class RecipeService {
     public Collection<Recipe> getAll() {
         return db.values(); //function for getting all recipes in the database as its currently represented
     }
+
+    public List<Recipe> getRecipesByTag(String tag) {
+        Collection<Recipe> recipes = db.values();
+        List<Recipe> matchedRecipes = new ArrayList<>();
+
+        for (Recipe recipe : recipes) {
+            if (Arrays.asList(recipe.getTags()).contains(tag)) {
+                matchedRecipes.add(recipe);
+            }
+        }
+
+        return matchedRecipes;
+    }
+
     public Recipe remove(String name) {
         return db.remove(name); //function for removing a recipe by name
     }

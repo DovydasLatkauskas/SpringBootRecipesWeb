@@ -6,7 +6,7 @@ import jakarta.validation.constraints.PositiveOrZero;
 
 // here we are modelling a recipe, this is the only object we will be passing to the website
 public class Recipe {
-    @NotEmpty //validation that we arent creating an empty recipe
+    @NotEmpty //validation that we aren't creating an empty recipe
     private String name; // name will be unique and used as id instead of an integer id in order to make linking to recipes nicer
     @NotEmpty
     private String author;
