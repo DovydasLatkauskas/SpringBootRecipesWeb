@@ -1,21 +1,59 @@
 # SpringBootRecipesWeb
-This is a website for hosting cooking recipes. You can read any of the given recipes, submit your own or delete one.
 
-![image](https://user-images.githubusercontent.com/77624813/227337156-82a02af9-dfdc-49b4-b5ad-37d698a5657e.png)
-![image](https://user-images.githubusercontent.com/77624813/227337221-a7e73090-589f-4fbb-abd9-3c6ee0cadf85.png)
-![image](https://user-images.githubusercontent.com/77624813/227336976-9728ab12-b0e9-4767-9639-6db37dde98ce.png)
+SpringBootRecipesWeb is a full-stack web application for managing and sharing cooking recipes. Users can browse existing recipes, submit their own, and remove recipes from the system.
 
+![Homepage](https://user-images.githubusercontent.com/77624813/227337156-82a02af9-dfdc-49b4-b5ad-37d698a5657e.png)
+![Recipe List](https://user-images.githubusercontent.com/77624813/227337221-a7e73090-589f-4fbb-abd9-3c6ee0cadf85.png)
+![Recipe Details](https://user-images.githubusercontent.com/77624813/227336976-9728ab12-b0e9-4767-9639-6db37dde98ce.png)
 
+## Features
 
-# Motivation
-This website was made as a challenge to myself to create a full-stack website using Java Spring Boot for the backend, REST API principles and model, controller, service architecture. The frontend is build using Thymeleaf, html, CSS and JavaScript.
+- View a list of recipes
+- Read detailed recipe information
+- Submit new recipes
+- Delete existing recipes
 
-# Improvement as a developer
-The aim of this project is to use best coding practices, object-oriented programming, modular design and code encapsulation principles.
+## Technology Stack
 
-# Requirements
-JRE for java 19 (Java runtime environment)
+- Backend: Java Spring Boot
+- Frontend: Thymeleaf, HTML, CSS, JavaScript
+- Database: JPA (Java Persistence API)
+- Architecture: Model-View-Controller (MVC)
 
-# Use
-Download SpringRecipes1.0.0.jar and run it in bash with "java -jar SpringRecipes-1.0.0.jar"
-Then open localhost:8080 in your browser to use the website
+## Project Goals
+
+This project was developed to create a functional full-stack website using Java Spring Boot for the backend, implementing REST API principles and following the MVC architecture. The frontend utilizes Thymeleaf for server-side rendering, enhanced with HTML, CSS, and JavaScript for a responsive user interface.
+
+## Development Approach
+
+The development process focused on applying best coding practices, including:
+
+- Object-oriented programming principles
+- Modular design
+- Code encapsulation
+- RESTful API design
+
+These practices were employed to create a maintainable and scalable application structure.
+
+## Requirements
+
+- JRE for Java 19 (Java Runtime Environment)
+
+## Installation and Usage
+
+1. Download the `SpringRecipes1.0.0.jar` file.
+2. Open a terminal or command prompt.
+3. Run the following command:
+   ```
+   java -jar SpringRecipes-1.0.0.jar
+   ```
+4. Open a web browser and navigate to `http://localhost:8080` to access the application.
+
+## Future Enhancements
+
+Potential areas for future development include:
+
+- User authentication and personalized recipe collections
+- Advanced search and filtering options
+- Integration with external recipe APIs
+- Mobile-responsive design improvements
