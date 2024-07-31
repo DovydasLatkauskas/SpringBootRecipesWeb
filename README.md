@@ -19,6 +19,7 @@ SpringBootRecipesWeb is a full-stack web application for managing and sharing co
 - Frontend: Thymeleaf, HTML, CSS, JavaScript
 - Database: PostgreSQL
 - Architecture: Model-View-Controller (MVC)
+- Testing: JUnit
 
 ## Project Goals
 
